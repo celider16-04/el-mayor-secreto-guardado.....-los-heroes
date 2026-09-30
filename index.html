@@ -1,0 +1,786 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ECOSOC | Delegaciones</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --azul: #0b2d5c;
+    --azul-claro: #164b8f;
+    --celeste: #eaf4ff;
+    --rojo: #c62828;
+    --blanco: #ffffff;
+    --gris: #f4f6f9;
+    --texto: #172033;
+    --sombra: 0 10px 30px rgba(11,45,92,.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,.06);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    color: var(--azul);
+    font-size: 20px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--azul);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--azul-claro);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 92vh;
+    padding: 150px 7% 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(30,94,170,.12), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(198,40,40,.08), transparent 30%),
+        white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: aparecer 1s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.un-symbol {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    background: var(--azul);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    box-shadow: 0 15px 35px rgba(11,45,92,.2);
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(55px, 10vw, 110px);
+    color: var(--azul);
+    line-height: .95;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    color: var(--rojo);
+    font-size: clamp(18px, 3vw, 28px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+    color: #596273;
+    font-size: 16px;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 15px 30px;
+    background: var(--azul);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.hero-button:hover {
+    background: var(--rojo);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+    padding: 100px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    color: var(--rojo);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-title h2 {
+    color: var(--azul);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 5vw, 55px);
+    margin-top: 8px;
+}
+
+.section-title p {
+    max-width: 650px;
+    margin: 15px auto 0;
+    color: #687386;
+    line-height: 1.7;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: white;
+}
+
+.about-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.info-card {
+    padding: 35px 25px;
+    border-radius: 20px;
+    background: var(--celeste);
+    text-align: center;
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra);
+}
+
+.info-icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.info-card h3 {
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #657083;
+    line-height: 1.6;
+}
+
+/* =========================
+   DELEGACIONES
+========================= */
+
+.delegaciones {
+    background: var(--gris);
+}
+
+.search-container {
+    max-width: 600px;
+    margin: -15px auto 45px;
+}
+
+#search {
+    width: 100%;
+    padding: 17px 22px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    box-shadow: var(--sombra);
+    transition: .3s;
+}
+
+#search:focus {
+    border-color: var(--azul-claro);
+}
+
+.grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    transition: .35s;
+    position: relative;
+    overflow: hidden;
+    animation: aparecer .6s ease both;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--azul), var(--rojo));
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra);
+}
+
+.flag {
+    font-size: 48px;
+    margin: 10px 0 15px;
+}
+
+.country {
+    color: var(--rojo);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+
+.name {
+    color: var(--azul);
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: var(--azul);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: rgba(255,255,255,.7);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.footer-line {
+    width: 60px;
+    height: 3px;
+    background: var(--rojo);
+    margin: 20px auto;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1000px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 650px) {
+
+    nav {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding: 130px 6% 80px;
+    }
+
+    section {
+        padding: 75px 6%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        <div class="logo-icon">🌐</div>
+        ECOSOC
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#comision">Comisión</a></li>
+        <li><a href="#delegaciones">Delegaciones</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <div class="un-symbol">
+            🌎
+        </div>
+
+        <h1>ECOSOC</h1>
+
+        <h2>Consejo Económico y Social</h2>
+
+        <p>
+            Bienvenidos a la comisión del Consejo Económico y Social
+            de las Naciones Unidas. Aquí conoceremos a las delegaciones
+            que formarán parte de este espacio de diálogo, cooperación
+            y búsqueda de soluciones.
+        </p>
+
+        <a href="#delegaciones" class="hero-button">
+            Conocer delegaciones ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     INFORMACIÓN
+========================= -->
+
+<section class="about" id="comision">
+
+    <div class="section-title">
+
+        <span>Sobre la comisión</span>
+
+        <h2>¿Qué es ECOSOC?</h2>
+
+        <p>
+            El Consejo Económico y Social es uno de los órganos
+            principales de las Naciones Unidas y funciona como espacio
+            de diálogo sobre asuntos económicos, sociales y de
+            desarrollo sostenible.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="info-card">
+            <div class="info-icon">🌎</div>
+            <h3>Cooperación</h3>
+            <p>
+                Promueve la cooperación internacional para abordar
+                desafíos económicos y sociales.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🤝</div>
+            <h3>Diálogo</h3>
+            <p>
+                Facilita el intercambio de ideas y propuestas entre
+                los Estados miembros.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">🌱</div>
+            <h3>Desarrollo</h3>
+            <p>
+                Aborda temas relacionados con el desarrollo sostenible
+                y el bienestar de las sociedades.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DELEGACIONES
+========================= -->
+
+<section class="delegaciones" id="delegaciones">
+
+    <div class="section-title">
+
+        <span>ECOSOC · MUN</span>
+
+        <h2>Delegaciones</h2>
+
+        <p>
+            Conoce a los estudiantes que representarán a cada Estado
+            durante las sesiones de la comisión.
+        </p>
+
+    </div>
+
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Buscar estudiante o país..."
+        >
+
+    </div>
+
+
+    <div class="grid" id="delegates">
+
+
+        <!-- 1 -->
+        <div class="card">
+            <div class="flag">🇮🇹</div>
+            <div class="country">Italia</div>
+            <div class="name">
+                Jean Carlos Tejada Gil
+            </div>
+        </div>
+
+
+        <!-- 2 -->
+        <div class="card">
+            <div class="flag">🇸🇦</div>
+            <div class="country">Arabia Saudita</div>
+            <div class="name">
+                Germayoli Nikolle Suero González
+            </div>
+        </div>
+
+
+        <!-- 3 -->
+        <div class="card">
+            <div class="flag">🇧🇷</div>
+            <div class="country">Brasil</div>
+            <div class="name">
+                Shellandy Flora
+            </div>
+        </div>
+
+
+        <!-- 4 -->
+        <div class="card">
+            <div class="flag">🇸🇬</div>
+            <div class="country">Singapur</div>
+            <div class="name">
+                Carlos David Paulino Martínez
+            </div>
+        </div>
+
+
+        <!-- 5 -->
+        <div class="card">
+            <div class="flag">🇩🇰</div>
+            <div class="country">Dinamarca</div>
+            <div class="name">
+                Ashley Joaquín Nuñez
+            </div>
+        </div>
+
+
+        <!-- 6 -->
+        <div class="card">
+            <div class="flag">🇩🇴</div>
+            <div class="country">República Dominicana</div>
+            <div class="name">
+                Longeiry Paola Santos Capellán
+            </div>
+        </div>
+
+
+        <!-- 7 -->
+        <div class="card">
+            <div class="flag">🇿🇦</div>
+            <div class="country">Sudáfrica</div>
+            <div class="name">
+                Elaine Nicole Hiciano Cabrera
+            </div>
+        </div>
+
+
+        <!-- 8 -->
+        <div class="card">
+            <div class="flag">🇦🇺</div>
+            <div class="country">Australia</div>
+            <div class="name">
+                Yanna Mariel Villar Dios
+            </div>
+        </div>
+
+
+        <!-- 9 -->
+        <div class="card">
+            <div class="flag">🇪🇬</div>
+            <div class="country">Egipto</div>
+            <div class="name">
+                María Ángela Canela Rosa
+            </div>
+        </div>
+
+
+        <!-- 10 -->
+        <div class="card">
+            <div class="flag">🇨🇦</div>
+            <div class="country">Canadá</div>
+            <div class="name">
+                Heydy Massiel Tavarez Peña
+            </div>
+        </div>
+
+
+        <!-- 11 -->
+        <div class="card">
+            <div class="flag">🇬🇷</div>
+            <div class="country">Grecia</div>
+            <div class="name">
+                Jaden Medina Alevante
+            </div>
+        </div>
+
+
+        <!-- 12 -->
+        <div class="card">
+            <div class="flag">🇪🇸</div>
+            <div class="country">España</div>
+            <div class="name">
+                Zoe Garcia
+            </div>
+        </div>
+
+
+        <!-- 13 -->
+        <div class="card">
+            <div class="flag">🇩🇪</div>
+            <div class="country">Alemania</div>
+            <div class="name">
+                Alexander Olivo Abreu
+            </div>
+        </div>
+
+
+        <!-- 14 -->
+        <div class="card">
+            <div class="flag">🇲🇽</div>
+            <div class="country">México</div>
+            <div class="name">
+                Samuel Olivo Abreu
+            </div>
+        </div>
+
+
+        <!-- 15 -->
+        <div class="card">
+            <div class="flag">🇧🇸</div>
+            <div class="country">Bahamas</div>
+            <div class="name">
+                Xaviel Olivo Abreu
+            </div>
+        </div>
+
+
+        <!-- 16 -->
+        <div class="card">
+            <div class="flag">🇰🇷</div>
+            <div class="country">Corea del Sur</div>
+            <div class="name">
+                Dariel Antonio Lene Fernández
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>ECOSOC</h3>
+
+    <div class="footer-line"></div>
+
+    <p>
+        Consejo Económico y Social<br>
+        Modelo de las Naciones Unidas
+    </p>
+
+    <p style="margin-top:20px;">
+        © 2026 · Comisión ECOSOC
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+
+search.addEventListener("input", function() {
+
+    const value = search.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(value)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
